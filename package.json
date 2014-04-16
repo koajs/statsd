@@ -1,0 +1,31 @@
+{
+  "name": "koa-statsd",
+  "description": "Koa statsd middleware",
+  "repository": "koajs/statsd",
+  "version": "0.0.1",
+  "keywords": [
+    "koa",
+    "middleware",
+    "stats",
+    "statsd",
+    "statistics",
+    "metrics"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "mocha": "*",
+    "supertest": "*",
+    "should": "*",
+    "koa": "koajs/koa",
+    "koa-route": "~1.1.1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "statsy": "^0.1.0"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}
