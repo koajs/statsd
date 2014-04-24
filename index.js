@@ -22,7 +22,6 @@ module.exports = function(opts){
     // counters
     s.incr('request.count');
     s.incr('request.' + this.method + '.count');
-    s.incr('request.' + this.method + '.' + this.path + '.count');
 
     // size
     s.histogram('request.size', this.request.length);
@@ -32,7 +31,6 @@ module.exports = function(opts){
 
     // duration
     this.res.on('finish', s.timer('request.duration'));
-    this.res.on('finish', s.timer('request.' + this.method + '.' + this.path + '.duration'));
 
     yield next;
   }
