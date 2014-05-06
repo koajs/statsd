@@ -1,6 +1,7 @@
 
 var request = require('supertest');
 var koa = require('koa');
+var stats = require('..');
 
 var methods = require('methods').map(function(method){
   // normalize method names for tests
@@ -9,11 +10,12 @@ var methods = require('methods').map(function(method){
   return method;
 }).filter(Boolean)
 
-var route = require('../');
+var route = require('koa-route');
 
 describe('Koa Route', function(){
   methods.forEach(function(method){
     var app = koa();
+    app.use(stats());
     app.use(route[method]('/:user(tj)', function*(user){
       this.body = user;
     }))
@@ -50,6 +52,7 @@ describe('Koa Route', function(){
     describe('should work with', function(){
       methods.forEach(function(method){
         var app = koa();
+        app.use(stats());
         app.use(route.all('/:user(tj)', function*(user){
           this.body = user;
         }))
@@ -66,6 +69,7 @@ describe('Koa Route', function(){
     describe('when patch does not match', function(){
       it('should 404', function (done){
         var app = koa();
+        app.use(stats());
         app.use(route.all('/:user(tj)', function*(user){
           this.body = user;
         }))
@@ -81,6 +85,7 @@ describe('Koa Route', function(){
     describe('should include "next" param with', function(){
       methods.forEach(function(method){
         var app = koa();
+        app.use(stats());
         app.use(route[method]('/:user(tj)', function*(user, next){
           yield next;
         }))
