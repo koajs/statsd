@@ -19,7 +19,8 @@
     "supertest": "*",
     "should": "*",
     "koa": "koajs/koa",
-    "koa-route": "~1.1.1"
+    "koa-route": "^1.1.4",
+    "methods": "^0.1.0"
   },
   "license": "MIT",
   "dependencies": {
