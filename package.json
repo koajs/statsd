@@ -17,7 +17,7 @@
   "devDependencies": {
     "mocha": "*",
     "supertest": "*",
-    "should": "*",
+    "should": "8.2.0",
     "koa": "koajs/koa",
     "koa-route": "~1.1.1"
   },
