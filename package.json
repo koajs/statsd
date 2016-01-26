@@ -15,7 +15,7 @@
     "index.js"
   ],
   "devDependencies": {
-    "mocha": "*",
+    "mocha": "2.4.1",
     "supertest": "*",
     "should": "*",
     "koa": "koajs/koa",
